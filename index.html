@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <h1>Guess my Number</h1>
+    <p >the game is simple choose a number between
+        1-100 and you have to guess the right number
+        you have 10 chances to guess the right number in each wrong asnswer you lose a chance 
+    </p>
+    <div class="list">
+    <h2><span id="tent">10</span>/10</h2>
+    </div>
+    <img src="image/1000_F_356185164_DFqmI1rzbBTfyDIwXBpGtsfDDYcrPDhS.jpg">
+
+    <input type="text" id="input_txt" placeholder="Enter your number">
+    <button onclick="guess()">SUBMIT</button>
+
+
+<h3 id="message">Congratulations!!  You Won  </h3>
+
+
+<script>
+    var game = document.getElementById("input_txt");
+    var message=document.getElementById("message");
+    var rand= Math.floor(Math.random()*100);
+    var tentatives = 10;
+    var element_tentatives = document.getElementById("tent");
+
+function guess(){
+    if(game.value==rand){
+        message.innerHTML="YOU WIN";
+    } 
+    else if(game.value>rand){
+        tentatives--;
+        element_tentatives = tentatives;
+        message.innerHTML ="Too BIG"
+    }
+    else{
+        tentatives--;
+        element_tentatives = tentatives;
+        message.innerHTML="Too Small";
+    }
+}
+</script>
+</body>
+</html>
