@@ -20,10 +20,10 @@
     <img src="image/1000_F_356185164_DFqmI1rzbBTfyDIwXBpGtsfDDYcrPDhS.jpg">
 
     <input type="text" id="input_txt" placeholder="Enter your number">
-    <button onclick="guess()">SUBMIT</button>
+    <button onclick="guess()" id="btnn">SUBMIT</button>
 
 
-<h3 id="message">Congratulations!!  You Won  </h3>
+<h3 id="message"> </h3>
 
 
 <script>
@@ -39,13 +39,17 @@ function guess(){
     } 
     else if(game.value>rand){
         tentatives--;
-        element_tentatives = tentatives;
-        message.innerHTML ="Too BIG"
+        element_tentatives.innerHTML = tentatives;
+        message.innerHTML ="Too BIG";
     }
     else{
         tentatives--;
-        element_tentatives = tentatives;
+        element_tentatives.innerHTML = tentatives;
         message.innerHTML="Too Small";
+    }
+    if(tentatives==0){
+        document.getElementById("btnn").style.display="none"
+        message.innerHTML="Game over";
     }
 }
 </script>
